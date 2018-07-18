@@ -1,5 +1,6 @@
 # PUGMash
 Open-source copy of FaceMash
+Example: [http://animalmash.000webhostapp.com/](http://animalmash.000webhostapp.com/)
 # Install
 1. Prepare DB
 	- Make sure your server is running mySQL
