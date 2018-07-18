@@ -1,4 +1,4 @@
-# PUGMesh
+# PUGMash
 Open-source copy of FaceMash
 # Install
 1. Prepare DB
