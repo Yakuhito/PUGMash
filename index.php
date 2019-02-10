@@ -1,4 +1,5 @@
 <!-- Coded by Yakuhito -->
+<!-- Contains a quick fix -->
 <?php
 include 'config.php';
 
@@ -12,6 +13,14 @@ while($row = $result->fetch_assoc()) {
 }
 $rnd = array_rand($array, 2);
 shuffle($rnd);
+
+if(isset($_POST["selected1_x"])) {
+    $_POST["selected"] = 1;
+}
+
+if(isset($_POST["selected2_x"])) {
+    $_POST["selected"] = 2;
+}
 
 if(isset($_POST["selected"]) && isset($_POST["id1"]) && isset($_POST["id2"]) && in_array($_POST["id1"], $ids) && in_array($_POST["id2"], $ids)) {
 	$id1 = $_POST["id1"];
@@ -161,16 +170,20 @@ body {
 	</a>
 </div>
 <div style="text-align:center">
-	<p>Please choose the cutest pic:</p>
+	<p>Alege fata mai frumoasa:</p>
 </div>
 <div>
 	<div class="w3-display-middle">	
 		<form action="" method="POST">
 			<input type="hidden" name="id1" value=<?php echo "\"".$ids[$rnd[0]]."\""; ?>/>
 			<input type="hidden" name="id2" value=<?php echo "\"".$ids[$rnd[1]]."\""; ?>/>
-			<div class="w3-third"><input type="image" class="w3-image" src=<?php echo "\"".$array[$rnd[0]]."\""; ?> alt="Image #1" name="selected" value="1"/></div>
+			<div class="w3-third">
+			<input type="image" class="w3-image" src=<?php echo "\"".$array[$rnd[0]]."\""; ?> alt="Image #1" name="selected1" value="1"/>
+			</div>
 			<div class="w3-third" style="text-align:center"><h1>VS</h1></div>
-			<div class="w3-third"><input type="image" class="w3-image" src=<?php echo "\"".$array[$rnd[1]]."\""; ?> alt="Image #2" name="selected" value="2"/></div>
+			<div class="w3-third">
+			<input type="image" class="w3-image" src=<?php echo "\"".$array[$rnd[1]]."\""; ?> alt="Image #2" name="selected2" value="2"/>
+			</div>
 		</form>
 	</div>
 </div>
